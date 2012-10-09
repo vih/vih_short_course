@@ -1,0 +1,288 @@
+# $Id$
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  vih_short_course.context.inc: n/a
+#  vih_short_course.features.field.inc: n/a
+#  vih_short_course.views_default.inc: n/a
+#  vih_short_course.features.inc: n/a
+#  vih_short_course.info: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2012-10-09 13:41+0200\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: vih_short_course.context.inc:35
+msgid "Short courses"
+msgstr ""
+
+#: vih_short_course.context.inc:36
+msgid "sections"
+msgstr ""
+
+#: vih_short_course.features.field.inc:1032
+msgid "Billede"
+msgstr ""
+
+#: vih_short_course.features.field.inc:1033
+msgid "Body"
+msgstr ""
+
+#: vih_short_course.features.field.inc:1034
+msgid "Fast besked"
+msgstr ""
+
+#: vih_short_course.features.field.inc:1035 vih_short_course.views_default.inc:230
+msgid "Klæbrig"
+msgstr ""
+
+#: vih_short_course.features.field.inc:1036
+msgid "Kursusleder"
+msgstr ""
+
+#: vih_short_course.features.field.inc:1037 vih_short_course.views_default.inc:228;1086
+msgid "Kursustype"
+msgstr ""
+
+#: vih_short_course.features.field.inc:1038
+msgid "Pris"
+msgstr ""
+
+#: vih_short_course.features.field.inc:1039
+msgid "Pris (børn)"
+msgstr ""
+
+#: vih_short_course.features.field.inc:1040
+msgid "Skema"
+msgstr ""
+
+#: vih_short_course.features.field.inc:1041 vih_short_course.views_default.inc:1081
+msgid "Tidspunkt"
+msgstr ""
+
+#: vih_short_course.features.field.inc:1042
+msgid "Tilmelding"
+msgstr ""
+
+#: vih_short_course.features.field.inc:1043
+msgid "Vælg en eller flere kursusledere, så kurset får et personligt præg."
+msgstr ""
+
+#: vih_short_course.features.inc:38
+msgid "Short Course"
+msgstr ""
+
+#: vih_short_course.features.inc:40
+msgid "Use <em>Short course</em> for short courses."
+msgstr ""
+
+#: vih_short_course.features.inc:42
+msgid "Title"
+msgstr ""
+
+#: vih_short_course.views_default.inc:209;1065
+msgid "Master"
+msgstr ""
+
+#: vih_short_course.views_default.inc:210;1066
+msgid "mere"
+msgstr ""
+
+#: vih_short_course.views_default.inc:211;1067
+msgid "Udfør"
+msgstr ""
+
+#: vih_short_course.views_default.inc:212;1068
+msgid "Gendan"
+msgstr ""
+
+#: vih_short_course.views_default.inc:213;1069
+msgid "Sortér efter"
+msgstr ""
+
+#: vih_short_course.views_default.inc:214;1070
+msgid "Stigende"
+msgstr ""
+
+#: vih_short_course.views_default.inc:215;1071
+msgid "Faldende"
+msgstr ""
+
+#: vih_short_course.views_default.inc:216
+msgid "Antal elementer"
+msgstr ""
+
+#: vih_short_course.views_default.inc:217;1073
+msgid "- Alle -"
+msgstr ""
+
+#: vih_short_course.views_default.inc:218;1074
+msgid "Forskydning"
+msgstr ""
+
+#: vih_short_course.views_default.inc:219;1075
+msgid "« første"
+msgstr ""
+
+#: vih_short_course.views_default.inc:220;1076
+msgid "‹ forrige"
+msgstr ""
+
+#: vih_short_course.views_default.inc:221;1077
+msgid "næste ›"
+msgstr ""
+
+#: vih_short_course.views_default.inc:222;1078
+msgid "sidste »"
+msgstr ""
+
+#: vih_short_course.views_default.inc:223
+msgid "Block"
+msgstr ""
+
+#: vih_short_course.views_default.inc:224
+msgid "Only sticky is chosen making it possible to have other types saved."
+msgstr ""
+
+#: vih_short_course.views_default.inc:225
+msgid "Block - tekst"
+msgstr ""
+
+#: vih_short_course.views_default.inc:226;1085
+msgid "Korte kurser"
+msgstr ""
+
+#: vih_short_course.views_default.inc:227;1105
+msgid "Content pane"
+msgstr ""
+
+#: vih_short_course.views_default.inc:229;1079
+msgid "Navn"
+msgstr ""
+
+#: vih_short_course.views_default.inc:231;1108
+msgid "View panes"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1072
+msgid "Elementer pr. side"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1080
+msgid "<h3>[title]</h3>"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1082
+msgid "Alle"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1083
+msgid "Tidspunkt -  startdato (field_course_time)"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1084
+msgid "Side"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1087
+msgid "Startdato"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1088
+msgid "Blok - course type"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1089
+msgid "Used with taxonomy display on the taxonomy page."
+msgstr ""
+
+#: vih_short_course.views_default.inc:1090
+msgid "<p><strong>Vi har i øjeblikket ikke nogen aktuelle kurser af den pågældende type. <a href=\"/nyhedsbrev\">Tilmeld dig nyhedsbrevet</a> for at blive opdateret, når vi igen har aktuelle kurser.</strong></p>"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1091
+msgid "Feed"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1092
+msgid "Ical"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1093
+msgid "Feed i iCal format"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1094
+msgid "Sidebar blok"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1095
+msgid "Blok - quotes"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1096
+msgid "Relaterede kurser"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1097
+msgid "Used to show related courses on the quotes pages."
+msgstr ""
+
+#: vih_short_course.views_default.inc:1098
+msgid "Blok - all courses"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1099
+msgid "Used to show all courses"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1100
+msgid "Blok - teachers"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1101
+msgid "Underviser på følgende korte kurser"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1102
+msgid "Shows which courses the teacher teaches."
+msgstr ""
+
+#: vih_short_course.views_default.inc:1103
+msgid "Indhold entity referenced from field_course_leader"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1104
+msgid "Indhold entity referenced from field_employee_reference"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1106
+msgid "Aktuelle korte kurser"
+msgstr ""
+
+#: vih_short_course.views_default.inc:1107
+msgid "Administrative view of short courses"
+msgstr ""
+
+#: vih_short_course.info:0
+msgid "VIH Short Course"
+msgstr ""
+
+#: vih_short_course.info:0
+msgid "Handles short courses"
+msgstr ""
+
+#: vih_short_course.info:0
+msgid "VIH"
+msgstr ""
+
