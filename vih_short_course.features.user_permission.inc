@@ -15,9 +15,6 @@ function vih_short_course_user_default_permissions() {
     'name' => 'create short_course content',
     'roles' => array(
       0 => 'administrator',
-      1 => 'kontor',
-      2 => 'lærer',
-      3 => 'redaktør',
     ),
     'module' => 'node',
   );
