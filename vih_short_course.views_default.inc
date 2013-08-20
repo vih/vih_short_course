@@ -98,14 +98,12 @@ function vih_short_course_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['display_description'] = 'Only sticky is chosen making it possible to have other types saved.';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['block_caching'] = '8';
 
   /* Display: Block - tekst */
   $handler = $view->new_display('block', 'Block - tekst', 'block_1');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['display_description'] = 'Only sticky is chosen making it possible to have other types saved.';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['style_options']['grouping'] = '';
@@ -129,7 +127,6 @@ function vih_short_course_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Kursustype';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
@@ -422,7 +419,6 @@ function vih_short_course_views_default_views() {
   $handler = $view->new_display('page', 'Side', 'page_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Korte kurser';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['cache'] = FALSE;
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -478,12 +474,12 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['fields']['field_course_type']['table'] = 'field_data_field_course_type';
   $handler->display->display_options['fields']['field_course_type']['field'] = 'field_course_type';
   $handler->display->display_options['fields']['field_course_type']['delta_offset'] = '0';
-  /* Felt: iToggle: Indholdselement Status */
-  $handler->display->display_options['fields']['itoggle-node-status']['id'] = 'itoggle-node-status';
-  $handler->display->display_options['fields']['itoggle-node-status']['table'] = 'node';
-  $handler->display->display_options['fields']['itoggle-node-status']['field'] = 'itoggle-node-status';
-  $handler->display->display_options['fields']['itoggle-node-status']['label'] = 'Udgivet';
-  $handler->display->display_options['fields']['itoggle-node-status']['itoggle_display_type'] = '1';
+  /* Felt: Indhold: Udgivet */
+  $handler->display->display_options['fields']['status']['id'] = 'status';
+  $handler->display->display_options['fields']['status']['table'] = 'node';
+  $handler->display->display_options['fields']['status']['field'] = 'status';
+  $handler->display->display_options['fields']['status']['type'] = 'unicode-yes-no';
+  $handler->display->display_options['fields']['status']['not'] = 0;
   /* Felt: Indhold: Redigér-link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
@@ -496,6 +492,20 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
   $handler->display->display_options['fields']['delete_node']['label'] = '';
   $handler->display->display_options['fields']['delete_node']['element_label_colon'] = FALSE;
+  /* Felt: Indhold: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = 'tilmeldinger';
+  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/[nid]/registrations';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Kontekstuelt filter: Indhold: Kursustype (field_course_type) */
   $handler->display->display_options['arguments']['field_course_type_tid']['id'] = 'field_course_type_tid';
@@ -532,12 +542,21 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['filters']['field_course_time_value']['field'] = 'field_course_time_value';
   $handler->display->display_options['filters']['field_course_time_value']['operator'] = '>=';
   $handler->display->display_options['filters']['field_course_time_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_course_time_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_course_time_value']['expose']['operator_id'] = 'field_course_time_value_op';
-  $handler->display->display_options['filters']['field_course_time_value']['expose']['label'] = 'Tidspunkt -  startdato (field_course_time)';
+  $handler->display->display_options['filters']['field_course_time_value']['expose']['label'] = 'Vis fra';
   $handler->display->display_options['filters']['field_course_time_value']['expose']['operator'] = 'field_course_time_value_op';
   $handler->display->display_options['filters']['field_course_time_value']['expose']['identifier'] = 'field_course_time_value';
+  $handler->display->display_options['filters']['field_course_time_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    5 => 0,
+    6 => 0,
+    7 => 0,
+  );
   $handler->display->display_options['filters']['field_course_time_value']['default_date'] = '+1 day';
-  $handler->display->display_options['filters']['field_course_time_value']['year_range'] = '-0:+3';
+  $handler->display->display_options['filters']['field_course_time_value']['year_range'] = '-10:+3';
   $handler->display->display_options['path'] = 'admin/dashboard/short_courses/all';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Alle kurser';
@@ -549,7 +568,6 @@ function vih_short_course_views_default_views() {
   $handler = $view->new_display('block', 'Blok - course type', 'block_short_course_depends_type');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['display_description'] = 'Used with taxonomy display on the taxonomy page.';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '50';
@@ -639,7 +657,6 @@ function vih_short_course_views_default_views() {
   $handler = $view->new_display('feed', 'Feed', 'feed_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Korte kurser';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['style_plugin'] = 'rss';
   $handler->display->display_options['row_plugin'] = 'date_ical';
@@ -659,12 +676,10 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Korte kurser';
   $handler->display->display_options['display_description'] = 'Feed i iCal format';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '50';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'date_ical';
-  $handler->display->display_options['style_options']['description'] = 'Korte kurser på Vejle Idrætshøjskole';
   $handler->display->display_options['row_plugin'] = 'date_ical';
   $handler->display->display_options['row_options']['date_field'] = 'field_data_field_course_time.field_course_time_value';
   $handler->display->display_options['path'] = 'kortekurser.ics';
@@ -681,7 +696,6 @@ function vih_short_course_views_default_views() {
   $handler = $view->new_display('block', 'Sidebar blok', 'block_short_courses_sidebar');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'short-courses-sidebar';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['style_options']['grouping'] = '';
@@ -749,7 +763,6 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Relaterede kurser';
   $handler->display->display_options['display_description'] = 'Used to show related courses on the quotes pages.';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['cache'] = FALSE;
   $handler->display->display_options['cache']['type'] = 'time';
   $handler->display->display_options['cache']['results_lifespan'] = '21600';
@@ -841,7 +854,6 @@ function vih_short_course_views_default_views() {
   /* Display: Blok - all courses */
   $handler = $view->new_display('block', 'Blok - all courses', 'block_all_short_courses');
   $handler->display->display_options['display_description'] = 'Used to show all courses';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
@@ -1010,7 +1022,6 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Underviser på følgende korte kurser';
   $handler->display->display_options['display_description'] = 'Shows which courses the teacher teaches.';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Forbindelse: Entity Reference: Refereret entity */
   $handler->display->display_options['relationships']['field_course_leader_target_id']['id'] = 'field_course_leader_target_id';
@@ -1093,7 +1104,6 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Aktuelle korte kurser';
   $handler->display->display_options['display_description'] = 'Administrative view of short courses';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['use_more'] = FALSE;
   $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['defaults']['use_more_always'] = FALSE;
@@ -1121,6 +1131,11 @@ function vih_short_course_views_default_views() {
     'image_link' => 'content',
   );
   $handler->display->display_options['fields']['field_picture']['group_column'] = 'fid';
+  /* Felt: Indhold: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -1143,18 +1158,27 @@ function vih_short_course_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Felt: iToggle: Indholdselement Status */
-  $handler->display->display_options['fields']['itoggle-node-status']['id'] = 'itoggle-node-status';
-  $handler->display->display_options['fields']['itoggle-node-status']['table'] = 'node';
-  $handler->display->display_options['fields']['itoggle-node-status']['field'] = 'itoggle-node-status';
-  $handler->display->display_options['fields']['itoggle-node-status']['label'] = 'Udgivet';
-  $handler->display->display_options['fields']['itoggle-node-status']['itoggle_display_type'] = '1';
+  /* Felt: Indhold: Udgivet */
+  $handler->display->display_options['fields']['status']['id'] = 'status';
+  $handler->display->display_options['fields']['status']['table'] = 'node';
+  $handler->display->display_options['fields']['status']['field'] = 'status';
+  $handler->display->display_options['fields']['status']['type'] = 'unicode-yes-no';
+  $handler->display->display_options['fields']['status']['not'] = 0;
   /* Felt: Indhold: Redigér-link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = 'tilmeldinger';
+  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/[nid]/registrations';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filterkriterie: Indhold: Type */
@@ -1207,6 +1231,9 @@ function vih_short_course_views_default_views() {
     t('Korte kurser'),
     t('Kursustype'),
     t('Udgivet'),
+    t('Nid'),
+    t('tilmeldinger'),
+    t('Vis fra'),
     t('Blok - course type'),
     t('Used with taxonomy display on the taxonomy page.'),
     t('<p><strong>Vi har i øjeblikket ikke nogen aktuelle kurser af den pågældende type. <a href="/nyhedsbrev">Tilmeld dig nyhedsbrevet</a> for at blive opdateret, når vi igen har aktuelle kurser.</strong></p>'),

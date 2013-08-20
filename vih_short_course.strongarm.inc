@@ -41,13 +41,13 @@ function vih_short_course_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '10',
+          'weight' => '11',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'redirect' => array(
-          'weight' => '11',
+          'weight' => '13',
         ),
         'xmlsitemap' => array(
           'weight' => '13',
@@ -87,8 +87,7 @@ function vih_short_course_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_short_course';
   $strongarm->value = array(
-    0 => 'moderation',
-    1 => 'revision',
+    0 => 'revision',
   );
   $export['node_options_short_course'] = $strongarm;
 

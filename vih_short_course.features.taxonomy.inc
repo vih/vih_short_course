@@ -13,10 +13,9 @@ function vih_short_course_taxonomy_default_vocabularies() {
       'name' => 'Short Course Type',
       'machine_name' => 'short_course_type',
       'description' => 'Used to group the short courses',
-      'hierarchy' => '0',
+      'hierarchy' => 0,
       'module' => 'taxonomy',
-      'weight' => '0',
-      'metatags' => array(),
+      'weight' => 0,
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',
