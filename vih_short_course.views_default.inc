@@ -38,15 +38,8 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
   $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
   $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
-  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['grouping'] = '';
   $handler->display->display_options['style_options']['columns'] = '3';
@@ -76,8 +69,8 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['sorts']['weight_1']['id'] = 'weight_1';
   $handler->display->display_options['sorts']['weight_1']['table'] = 'draggableviews_structure';
   $handler->display->display_options['sorts']['weight_1']['field'] = 'weight';
-  $handler->display->display_options['sorts']['weight_1']['draggableviews_setting_view'] = 'self';
-  $handler->display->display_options['sorts']['weight_1']['draggableviews_setting_new_items_bottom_list'] = 1;
+  $handler->display->display_options['sorts']['weight_1']['draggableviews_setting_view'] = 'short_course_types:panel_pane_1';
+  $handler->display->display_options['sorts']['weight_1']['draggableviews_setting_new_items_bottom_list'] = 0;
   /* Filterkriterie: Ordforråd: Internt navn */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
@@ -95,8 +88,8 @@ function vih_short_course_views_default_views() {
   );
   $handler->display->display_options['filters']['field_sticky_value']['group'] = '0';
 
-  /* Display: Block */
-  $handler = $view->new_display('block', 'Block', 'block');
+  /* Display: Overview Block */
+  $handler = $view->new_display('block', 'Overview Block', 'block');
   $handler->display->display_options['display_description'] = 'Only sticky is chosen making it possible to have other types saved.';
   $handler->display->display_options['block_caching'] = '8';
 
@@ -209,6 +202,22 @@ function vih_short_course_views_default_views() {
     'short_course_type' => 'short_course_type',
   );
   $handler->display->display_options['filters']['machine_name']['group'] = 1;
+  $handler->display->display_options['pane_category']['name'] = 'VIH Admin';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+
+  /* Display: Overview Pane */
+  $handler = $view->new_display('panel_pane', 'Overview Pane', 'panel_pane_2');
+  $handler->display->display_options['pane_category']['name'] = 'VIH Short Course';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['allow']['use_pager'] = 0;
+  $handler->display->display_options['allow']['items_per_page'] = 0;
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 'title_override';
+  $handler->display->display_options['allow']['exposed_form'] = 0;
+  $handler->display->display_options['allow']['fields_override'] = 0;
   $translatables['short_course_types'] = array(
     t('Master'),
     t('mere'),
@@ -217,14 +226,7 @@ function vih_short_course_views_default_views() {
     t('Sortér efter'),
     t('Stigende'),
     t('Faldende'),
-    t('Antal elementer'),
-    t('- Alle -'),
-    t('Forskydning'),
-    t('« første'),
-    t('‹ forrige'),
-    t('næste ›'),
-    t('sidste »'),
-    t('Block'),
+    t('Overview Block'),
     t('Only sticky is chosen making it possible to have other types saved.'),
     t('Block - tekst'),
     t('Korte kurser'),
@@ -232,7 +234,9 @@ function vih_short_course_views_default_views() {
     t('Kursustype'),
     t('Navn'),
     t('Synlig'),
-    t('View panes'),
+    t('VIH Admin'),
+    t('Overview Pane'),
+    t('VIH Short Course'),
   );
   $export['short_course_types'] = $view;
 
@@ -252,8 +256,10 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'time';
-  $handler->display->display_options['cache']['results_lifespan'] = '21600';
-  $handler->display->display_options['cache']['output_lifespan'] = '21600';
+  $handler->display->display_options['cache']['results_lifespan'] = '518400';
+  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['output_lifespan'] = '518400';
+  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
@@ -319,6 +325,7 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['fields']['field_picture']['field'] = 'field_picture';
   $handler->display->display_options['fields']['field_picture']['label'] = '';
   $handler->display->display_options['fields']['field_picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_picture']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_picture']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['field_picture']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_picture']['settings'] = array(
@@ -336,6 +343,7 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['hide_alter_empty'] = FALSE;
   /* Felt: Indhold: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
@@ -347,6 +355,7 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['body']['alter']['html'] = TRUE;
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['body']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
   $handler->display->display_options['fields']['body']['settings'] = array(
@@ -1099,8 +1108,8 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['arguments']['field_employee_reference_target_id']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_employee_reference_target_id']['summary_options']['items_per_page'] = '25';
 
-  /* Display: Content pane */
-  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  /* Display: Admin pane */
+  $handler = $view->new_display('panel_pane', 'Admin pane', 'panel_pane_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Aktuelle korte kurser';
   $handler->display->display_options['display_description'] = 'Administrative view of short courses';
@@ -1117,6 +1126,14 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* Opførsel ved ingen resultater: Global: Tekstområde */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'Der er i øjeblikket ingen aktuelle kurser.';
+  $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Felt: Felt: Billede */
   $handler->display->display_options['fields']['field_picture']['id'] = 'field_picture';
@@ -1207,6 +1224,111 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['filters']['field_course_time_value']['expose']['identifier'] = 'field_course_time_value';
   $handler->display->display_options['filters']['field_course_time_value']['default_date'] = '+1 day';
   $handler->display->display_options['filters']['field_course_time_value']['year_range'] = '-0:+3';
+  $handler->display->display_options['pane_category']['name'] = 'VIH Admin';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+
+  /* Display: Short Course Pane */
+  $handler = $view->new_display('panel_pane', 'Short Course Pane', 'panel_pane_2');
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* Opførsel ved ingen resultater: Global: Tekstområde */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = '<div class="vih-box-highlight-pane"><h3>Kursusbeskrivelser er klar i starten af november</h3><p>Vi arbejder i øjeblikket på beskrivelserne af de korte kurser. Du kan finde yderligere oplysninger her på siden i starten af november. Hvis du vil have besked, når tilmeldingen åbner, kan du <a href="/nyhedsbrev">tilmelde dig vores nyhedsbrev</a> eller <a href="http://facebook.com/vejleih">følge os på Facebook</a>.</p></div>';
+  $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Indhold: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Felt: Felt: Billede */
+  $handler->display->display_options['fields']['field_picture']['id'] = 'field_picture';
+  $handler->display->display_options['fields']['field_picture']['table'] = 'field_data_field_picture';
+  $handler->display->display_options['fields']['field_picture']['field'] = 'field_picture';
+  $handler->display->display_options['fields']['field_picture']['label'] = '';
+  $handler->display->display_options['fields']['field_picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_picture']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_picture']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_picture']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_picture']['settings'] = array(
+    'image_style' => 'thumbnail_tall',
+    'image_link' => 'content',
+  );
+  $handler->display->display_options['fields']['field_picture']['group_column'] = 'fid';
+  /* Felt: Indhold: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Navn';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<h3>[title]</h3>';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['title']['hide_alter_empty'] = FALSE;
+  /* Felt: Indhold: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['alter']['max_length'] = '100';
+  $handler->display->display_options['fields']['body']['alter']['strip_tags'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['html'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['body']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '600',
+  );
+  /* Felt: Indhold: Tidspunkt */
+  $handler->display->display_options['fields']['field_course_time']['id'] = 'field_course_time';
+  $handler->display->display_options['fields']['field_course_time']['table'] = 'field_data_field_course_time';
+  $handler->display->display_options['fields']['field_course_time']['field'] = 'field_course_time';
+  $handler->display->display_options['fields']['field_course_time']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_course_time']['settings'] = array(
+    'format_type' => 'medium_date_without_time',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = 'Tilmelding';
+  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/[nid]#add-to-cart-form-registration';
+  $handler->display->display_options['fields']['nothing']['alter']['alt'] = 'Tilmelding til [title]';
+  $handler->display->display_options['fields']['nothing']['alter']['link_class'] = 'button';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Kontekstuelt filter: Indhold: Kursustype (field_course_type) */
+  $handler->display->display_options['arguments']['field_course_type_tid']['id'] = 'field_course_type_tid';
+  $handler->display->display_options['arguments']['field_course_type_tid']['table'] = 'field_data_field_course_type';
+  $handler->display->display_options['arguments']['field_course_type_tid']['field'] = 'field_course_type_tid';
+  $handler->display->display_options['arguments']['field_course_type_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_course_type_tid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_course_type_tid']['default_argument_type'] = 'taxonomy_tid';
+  $handler->display->display_options['arguments']['field_course_type_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_course_type_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_course_type_tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_course_type_tid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_course_type_tid']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['field_course_type_tid']['validate_options']['vocabularies'] = array(
+    'short_course_type' => 'short_course_type',
+  );
+  $handler->display->display_options['arguments']['field_course_type_tid']['validate']['fail'] = 'ignore';
+  $handler->display->display_options['pane_category']['name'] = 'VIH Short Course';
+  $handler->display->display_options['pane_category']['weight'] = '0';
   $translatables['short_courses'] = array(
     t('Master'),
     t('mere'),
@@ -1253,10 +1375,14 @@ function vih_short_course_views_default_views() {
     t('Shows which courses the teacher teaches.'),
     t('Indhold entity referenced from field_course_leader'),
     t('Indhold entity referenced from field_employee_reference'),
-    t('Content pane'),
+    t('Admin pane'),
     t('Aktuelle korte kurser'),
     t('Administrative view of short courses'),
-    t('View panes'),
+    t('Der er i øjeblikket ingen aktuelle kurser.'),
+    t('VIH Admin'),
+    t('Short Course Pane'),
+    t('<div class="vih-box-highlight-pane"><h3>Kursusbeskrivelser er klar i starten af november</h3><p>Vi arbejder i øjeblikket på beskrivelserne af de korte kurser. Du kan finde yderligere oplysninger her på siden i starten af november. Hvis du vil have besked, når tilmeldingen åbner, kan du <a href="/nyhedsbrev">tilmelde dig vores nyhedsbrev</a> eller <a href="http://facebook.com/vejleih">følge os på Facebook</a>.</p></div>'),
+    t('VIH Short Course'),
   );
   $export['short_courses'] = $view;
 
