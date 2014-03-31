@@ -189,7 +189,7 @@ function vih_short_course_default_page_manager_handlers() {
       'label' => 'hidden',
       'formatter' => 'image',
       'formatter_settings' => array(
-        'image_style' => 'content_width',
+        'image_style' => 'panopoly_image_spotlight',
         'image_link' => '',
       ),
       'context' => 'argument_entity_id:node_1',
