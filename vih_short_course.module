@@ -5,3 +5,17 @@
  */
  
 include_once('vih_short_course.features.inc');
+
+/**
+ * Implements hook_migrate_api().
+ */
+function vih_short_course_migrate_api() {
+  $api = array(
+    'api' => 2,
+    'migrations' => array(
+      'VIHShortCourseExternalNode' => array('class_name' => 'VIHShortCourseExternalNode'),
+    ),
+  );
+
+  return $api;
+}
