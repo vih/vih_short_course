@@ -553,7 +553,7 @@ function vih_short_course_field_default_field_instances() {
           'download' => 1,
           'pdf_height' => 480,
           'pdf_width' => 600,
-          'renderer' => 0,
+          'renderer' => 'google',
         ),
         'type' => 'pdf_reader_file',
         'weight' => 2,
