@@ -384,7 +384,9 @@ function vih_short_course_default_page_manager_handlers() {
       'view_mode' => 'teaser',
     );
     $pane->cache = array();
-    $pane->style = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 6;
@@ -441,6 +443,35 @@ function vih_short_course_default_page_manager_handlers() {
     $pane->uuid = '723a2d02-702a-4e24-9962-fca930eee519';
     $display->content['new-723a2d02-702a-4e24-9962-fca930eee519'] = $pane;
     $display->panels['middle'][7] = 'new-723a2d02-702a-4e24-9962-fca930eee519';
+    $pane = new stdClass();
+    $pane->pid = 'new-047326bb-eeb2-428b-9b76-cdd7d603da6b';
+    $pane->panel = 'middle';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_registration';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'link_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 8;
+    $pane->locks = array();
+    $pane->uuid = '047326bb-eeb2-428b-9b76-cdd7d603da6b';
+    $display->content['new-047326bb-eeb2-428b-9b76-cdd7d603da6b'] = $pane;
+    $display->panels['middle'][8] = 'new-047326bb-eeb2-428b-9b76-cdd7d603da6b';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
