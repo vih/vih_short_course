@@ -401,7 +401,6 @@ function vih_short_course_views_default_views() {
     'vih_short_course_family' => 'vih_short_course_family',
     'vih_short_course_golf' => 'vih_short_course_golf',
     'vih_short_course_kajak' => 'vih_short_course_kajak',
-    'vih_short_course_sommercamp' => 'vih_short_course_sommercamp',
     'vih_short_course_sport_camp' => 'vih_short_course_sport_camp',
   );
   $handler->display->display_options['filters']['type']['group'] = '0';
@@ -540,7 +539,6 @@ function vih_short_course_views_default_views() {
     'vih_short_course_family' => 'vih_short_course_family',
     'vih_short_course_golf' => 'vih_short_course_golf',
     'vih_short_course_kajak' => 'vih_short_course_kajak',
-    'vih_short_course_sommercamp' => 'vih_short_course_sommercamp',
     'vih_short_course_sport_camp' => 'vih_short_course_sport_camp',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
@@ -1002,7 +1000,6 @@ function vih_short_course_views_default_views() {
     'vih_short_course_family' => 'vih_short_course_family',
     'vih_short_course_golf' => 'vih_short_course_golf',
     'vih_short_course_kajak' => 'vih_short_course_kajak',
-    'vih_short_course_sommercamp' => 'vih_short_course_sommercamp',
     'vih_short_course_sport_camp' => 'vih_short_course_sport_camp',
   );
   $handler->display->display_options['filters']['type']['group'] = '0';
@@ -1207,7 +1204,6 @@ function vih_short_course_views_default_views() {
     'vih_short_course_family' => 'vih_short_course_family',
     'vih_short_course_golf' => 'vih_short_course_golf',
     'vih_short_course_kajak' => 'vih_short_course_kajak',
-    'vih_short_course_sommercamp' => 'vih_short_course_sommercamp',
     'vih_short_course_sport_camp' => 'vih_short_course_sport_camp',
   );
   $handler->display->display_options['filters']['type']['group'] = '0';
