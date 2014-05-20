@@ -182,7 +182,7 @@ function vih_short_course_default_page_manager_handlers() {
     $pane->pid = 'new-5293ea3f-8f4d-4599-a3a9-5f5eba67a692';
     $pane->panel = 'middle';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_picture';
+    $pane->subtype = 'node:field_featured_image';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(

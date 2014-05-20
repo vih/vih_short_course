@@ -256,8 +256,8 @@ function vih_short_course_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-short_course-field_picture'
-  $field_instances['node-short_course-field_picture'] = array(
+  // Exported field_instance: 'node-short_course-field_featured_image'
+  $field_instances['node-short_course-field_featured_image'] = array(
     'bundle' => 'short_course',
     'deleted' => 0,
     'description' => '',
@@ -292,7 +292,7 @@ function vih_short_course_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_picture',
+    'field_name' => 'field_featured_image',
     'label' => 'Billede',
     'required' => 0,
     'settings' => array(
@@ -629,8 +629,8 @@ function vih_short_course_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-short_course_type-field_picture'
-  $field_instances['taxonomy_term-short_course_type-field_picture'] = array(
+  // Exported field_instance: 'taxonomy_term-short_course_type-field_featured_image'
+  $field_instances['taxonomy_term-short_course_type-field_featured_image'] = array(
     'bundle' => 'short_course_type',
     'deleted' => 0,
     'description' => '',
@@ -669,7 +669,7 @@ function vih_short_course_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'taxonomy_term',
-    'field_name' => 'field_picture',
+    'field_name' => 'field_featured_image',
     'label' => 'Billede',
     'required' => 0,
     'settings' => array(
