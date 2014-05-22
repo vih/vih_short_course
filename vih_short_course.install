@@ -110,6 +110,7 @@ function vih_short_course_update_7000() {
 /**
  * Replace field_picture with field_featured_image for the taxonomy term
  */
+ /*
 function vih_short_course_update_7001() {
   $module = 'vih_short_course';
   $bundle = 'short_course_type';
@@ -210,3 +211,4 @@ function vih_short_course_update_7001() {
     field_delete_instance($inst, false);
   }
 }
+*/
