@@ -110,7 +110,6 @@ function vih_short_course_update_7000() {
 /**
  * Replace field_picture with field_featured_image for the taxonomy term
  */
- /*
 function vih_short_course_update_7001() {
   $module = 'vih_short_course';
   $bundle = 'short_course_type';
@@ -199,7 +198,7 @@ function vih_short_course_update_7001() {
   foreach ($nodes as $nx => $no) {
     if (!empty($no->{$old_field_name})) {
       $no->field_featured_image = $no->{$old_field_name};
-      node_save($no);
+      taxonomy_term_save($no);
       $file = file_load($no->field_featured_image[LANGUAGE_NONE][0]['fid']);
       if ($file) {
         file_usage_add($file, $module, $bundle, $no->nid);
@@ -211,4 +210,4 @@ function vih_short_course_update_7001() {
     field_delete_instance($inst, false);
   }
 }
-*/
+
