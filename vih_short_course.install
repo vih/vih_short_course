@@ -206,7 +206,7 @@ function vih_short_course_update_7001() {
       }
     }
   }
-  $inst = field_info_instance('node', $old_field_name, $bundle);
+  $inst = field_info_instance('taxonomy_term', $old_field_name, $bundle);
   if ($inst) {
     field_delete_instance($inst, false);
   }
