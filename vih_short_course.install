@@ -194,14 +194,14 @@ function vih_short_course_update_7001() {
     watchdog($module, t('!field_name was added successfully to !bundle', array('!field_name' => $new_field_name, '!bundle' => $bundle)));
   }
 
-  $nodes = taxonomy_term_load_multiple(null, array('type' => $bundle));
-  foreach ($nodes as $nx => $no) {
-    if (!empty($no->{$old_field_name})) {
-      $no->field_featured_image = $no->{$old_field_name};
-      taxonomy_term_save($no);
-      $file = file_load($no->field_featured_image[LANGUAGE_NONE][0]['fid']);
+  $terms = taxonomy_term_load_multiple(null, array('type' => $bundle));
+  foreach ($terms as $nx => $term) {
+    if (!empty($term->{$old_field_name})) {
+      $term->field_featured_image = $term->{$old_field_name};
+      taxonomy_term_save($term);
+      $file = file_load($term->field_featured_image[LANGUAGE_NONE][0]['fid']);
       if ($file) {
-        file_usage_add($file, $module, $bundle, $no->nid);
+        file_usage_add($file, $module, $bundle, $term->tid);
       }
     }
   }
