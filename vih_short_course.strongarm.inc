@@ -47,7 +47,7 @@ function vih_short_course_strongarm() {
           'weight' => '0',
         ),
         'redirect' => array(
-          'weight' => '13',
+          'weight' => '14',
         ),
         'xmlsitemap' => array(
           'weight' => '13',

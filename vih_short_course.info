@@ -50,6 +50,7 @@ features[field_instance][] = node-short_course-field_course_leader
 features[field_instance][] = node-short_course-field_course_time
 features[field_instance][] = node-short_course-field_course_type
 features[field_instance][] = node-short_course-field_featured_image
+features[field_instance][] = node-short_course-field_pictures
 features[field_instance][] = node-short_course-field_price
 features[field_instance][] = node-short_course-field_price_children
 features[field_instance][] = node-short_course-field_registration
