@@ -278,11 +278,10 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
   $handler->display->display_options['style_plugin'] = 'table';
-  $handler->display->display_options['style_options']['grouping'] = '';
   $handler->display->display_options['style_options']['columns'] = array(
     'field_featured_image' => 'field_featured_image',
     'title' => 'title',
-    'body' => 'title',
+    'body' => 'body',
     'field_course_time' => 'field_course_time',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
@@ -295,7 +294,7 @@ function vih_short_course_views_default_views() {
       'empty_column' => 0,
     ),
     'title' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -309,15 +308,13 @@ function vih_short_course_views_default_views() {
       'empty_column' => 0,
     ),
     'field_course_time' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
   );
-  $handler->display->display_options['style_options']['sticky'] = TRUE;
-  $handler->display->display_options['style_options']['summary'] = 'Korte kurser på Vejle Idrætshøjskole - sommerhøjskole, familiehøjskole, familiekurser, golfhøjskole, golfkurser';
   /* Field: Field: Billede */
   $handler->display->display_options['fields']['field_featured_image']['id'] = 'field_featured_image';
   $handler->display->display_options['fields']['field_featured_image']['table'] = 'field_data_field_featured_image';
@@ -1224,6 +1221,13 @@ function vih_short_course_views_default_views() {
 
   /* Display: Short Course Pane */
   $handler = $view->new_display('panel_pane', 'Short Course Pane', 'panel_pane_2');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
@@ -1324,6 +1328,15 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['arguments']['field_course_type_tid']['validate']['fail'] = 'ignore';
   $handler->display->display_options['pane_category']['name'] = 'VIH Short Course';
   $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['allow']['use_pager'] = 0;
+  $handler->display->display_options['allow']['items_per_page'] = 0;
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 'title_override';
+  $handler->display->display_options['allow']['exposed_form'] = 0;
+  $handler->display->display_options['allow']['fields_override'] = 0;
   $translatables['short_courses'] = array(
     t('Master'),
     t('mere'),

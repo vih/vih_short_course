@@ -40,5 +40,6 @@ function vih_short_course_node_info() {
       'help' => '',
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }
