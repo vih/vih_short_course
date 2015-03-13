@@ -70,4 +70,5 @@ features[variable][] = node_preview_short_course
 features[variable][] = node_submitted_short_course
 features[views_view][] = short_course_types
 features[views_view][] = short_courses
+features[views_view][] = vih_short_course_orders
 files[] = vih_short_course.migrate.inc
