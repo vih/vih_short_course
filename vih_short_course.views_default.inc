@@ -1437,7 +1437,6 @@ function vih_short_course_views_default_views() {
     'field_golf_handicap' => 'field_golf_handicap',
     'field_roommate' => 'field_roommate',
     'mail' => 'mail',
-    'field_sportcamp_subjects' => 'field_sportcamp_subjects',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
@@ -1522,13 +1521,6 @@ function vih_short_course_views_default_views() {
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
-    ),
-    'field_sportcamp_subjects' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 1,
     ),
   );
   /* Opførsel ved ingen resultater: Global: Tekstområde */
@@ -1626,12 +1618,6 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['fields']['field_roommate']['table'] = 'field_data_field_roommate';
   $handler->display->display_options['fields']['field_roommate']['field'] = 'field_roommate';
   $handler->display->display_options['fields']['field_roommate']['relationship'] = 'commerce_line_items_line_item_id';
-  /* Felt: Handler mangler eller er i stykker */
-  $handler->display->display_options['fields']['field_sportcamp_subjects']['id'] = 'field_sportcamp_subjects';
-  $handler->display->display_options['fields']['field_sportcamp_subjects']['table'] = 'field_data_field_sportcamp_subjects';
-  $handler->display->display_options['fields']['field_sportcamp_subjects']['field'] = 'field_sportcamp_subjects';
-  $handler->display->display_options['fields']['field_sportcamp_subjects']['relationship'] = 'commerce_line_items_line_item_id';
-  $handler->display->display_options['fields']['field_sportcamp_subjects']['label'] = 'Fag';
   /* Sorteringskriterie: Commerce Ordre: Ordre ID */
   $handler->display->display_options['sorts']['order_id']['id'] = 'order_id';
   $handler->display->display_options['sorts']['order_id']['table'] = 'commerce_order';
