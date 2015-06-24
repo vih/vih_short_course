@@ -411,7 +411,7 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['filters']['field_course_time_value']['expose']['label'] = 'Tidspunkt -  startdato (field_course_time)';
   $handler->display->display_options['filters']['field_course_time_value']['expose']['operator'] = 'field_course_time_value_op';
   $handler->display->display_options['filters']['field_course_time_value']['expose']['identifier'] = 'field_course_time_value';
-  $handler->display->display_options['filters']['field_course_time_value']['default_date'] = '+1 day';
+  $handler->display->display_options['filters']['field_course_time_value']['default_date'] = '-1 day';
   $handler->display->display_options['filters']['field_course_time_value']['year_range'] = '-0:+3';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
