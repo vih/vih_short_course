@@ -1654,6 +1654,75 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['header']['result']['table'] = 'views';
   $handler->display->display_options['header']['result']['field'] = 'result';
   $handler->display->display_options['header']['result']['content'] = 'I alt @total tilmeldinger til kurset';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Commerce Order: Order ID */
+  $handler->display->display_options['fields']['order_id']['id'] = 'order_id';
+  $handler->display->display_options['fields']['order_id']['table'] = 'commerce_order';
+  $handler->display->display_options['fields']['order_id']['field'] = 'order_id';
+  $handler->display->display_options['fields']['order_id']['link_to_order'] = 'admin';
+  /* Field: Commerce Line item: Navn */
+  $handler->display->display_options['fields']['field_registrant_name']['id'] = 'field_registrant_name';
+  $handler->display->display_options['fields']['field_registrant_name']['table'] = 'field_data_field_registrant_name';
+  $handler->display->display_options['fields']['field_registrant_name']['field'] = 'field_registrant_name';
+  $handler->display->display_options['fields']['field_registrant_name']['relationship'] = 'commerce_line_items_line_item_id';
+  /* Field: Commerce Line item: CPR-nummer */
+  $handler->display->display_options['fields']['field_cpr_nummer']['id'] = 'field_cpr_nummer';
+  $handler->display->display_options['fields']['field_cpr_nummer']['table'] = 'field_data_field_cpr_nummer';
+  $handler->display->display_options['fields']['field_cpr_nummer']['field'] = 'field_cpr_nummer';
+  $handler->display->display_options['fields']['field_cpr_nummer']['relationship'] = 'commerce_line_items_line_item_id';
+  $handler->display->display_options['fields']['field_cpr_nummer']['type'] = 'vih_cpr_formatter';
+  /* Field: User: E-mail */
+  $handler->display->display_options['fields']['mail']['id'] = 'mail';
+  $handler->display->display_options['fields']['mail']['table'] = 'users';
+  $handler->display->display_options['fields']['mail']['field'] = 'mail';
+  $handler->display->display_options['fields']['mail']['relationship'] = 'uid';
+  /* Field: Commerce Order: Uid */
+  $handler->display->display_options['fields']['uid']['id'] = 'uid';
+  $handler->display->display_options['fields']['uid']['table'] = 'commerce_order';
+  $handler->display->display_options['fields']['uid']['field'] = 'uid';
+  /* Field: Commerce Order: Order status */
+  $handler->display->display_options['fields']['status']['id'] = 'status';
+  $handler->display->display_options['fields']['status']['table'] = 'commerce_order';
+  $handler->display->display_options['fields']['status']['field'] = 'status';
+  /* Field: Commerce Order: Order Balance */
+  $handler->display->display_options['fields']['balance']['id'] = 'balance';
+  $handler->display->display_options['fields']['balance']['table'] = 'commerce_order';
+  $handler->display->display_options['fields']['balance']['field'] = 'balance';
+  /* Field: Commerce Product: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'commerce_product';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'commerce_product_product_id';
+  $handler->display->display_options['fields']['title']['label'] = 'Product';
+  $handler->display->display_options['fields']['title']['link_to_product'] = 0;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_golf_product';
+  $handler->display->display_options['fields']['title_1']['label'] = 'Course';
+  /* Field: Commerce Line item: DGU-medlemsnummer */
+  $handler->display->display_options['fields']['field_dgu_medlemsnummer']['id'] = 'field_dgu_medlemsnummer';
+  $handler->display->display_options['fields']['field_dgu_medlemsnummer']['table'] = 'field_data_field_dgu_medlemsnummer';
+  $handler->display->display_options['fields']['field_dgu_medlemsnummer']['field'] = 'field_dgu_medlemsnummer';
+  $handler->display->display_options['fields']['field_dgu_medlemsnummer']['relationship'] = 'commerce_line_items_line_item_id';
+  /* Field: Commerce Line item: Golf handicap */
+  $handler->display->display_options['fields']['field_golf_handicap']['id'] = 'field_golf_handicap';
+  $handler->display->display_options['fields']['field_golf_handicap']['table'] = 'field_data_field_golf_handicap';
+  $handler->display->display_options['fields']['field_golf_handicap']['field'] = 'field_golf_handicap';
+  $handler->display->display_options['fields']['field_golf_handicap']['relationship'] = 'commerce_line_items_line_item_id';
+  $handler->display->display_options['fields']['field_golf_handicap']['label'] = 'Golfhandicap';
+  $handler->display->display_options['fields']['field_golf_handicap']['settings'] = array(
+    'thousand_separator' => ' ',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Commerce Line item: Sambo */
+  $handler->display->display_options['fields']['field_roommate']['id'] = 'field_roommate';
+  $handler->display->display_options['fields']['field_roommate']['table'] = 'field_data_field_roommate';
+  $handler->display->display_options['fields']['field_roommate']['field'] = 'field_roommate';
+  $handler->display->display_options['fields']['field_roommate']['relationship'] = 'commerce_line_items_line_item_id';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
@@ -1691,7 +1760,7 @@ function vih_short_course_views_default_views() {
   /* Display: Email */
   $handler = $view->new_display('page', 'Email', 'page_4');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Tilmeldinger';
+  $handler->display->display_options['title'] = 'Send e-mail';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['group_by'] = FALSE;
   $handler->display->display_options['group_by'] = TRUE;
@@ -1708,6 +1777,7 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['fields']['order_id']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['order_id']['field'] = 'order_id';
   $handler->display->display_options['fields']['order_id']['group_type'] = 'count_distinct';
+  $handler->display->display_options['fields']['order_id']['exclude'] = TRUE;
   /* Field: Commerce Order: Order status */
   $handler->display->display_options['fields']['status']['id'] = 'status';
   $handler->display->display_options['fields']['status']['table'] = 'commerce_order';
@@ -1762,7 +1832,7 @@ function vih_short_course_views_default_views() {
   );
   $handler->display->display_options['path'] = 'node/%/email';
   $handler->display->display_options['menu']['type'] = 'tab';
-  $handler->display->display_options['menu']['title'] = 'E-mail';
+  $handler->display->display_options['menu']['title'] = 'Send e-mail';
   $handler->display->display_options['menu']['weight'] = '2';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
@@ -1797,12 +1867,13 @@ function vih_short_course_views_default_views() {
     t('Tilmeldinger'),
     t('more'),
     t('I alt @total tilmeldinger til kurset'),
+    t('Product'),
+    t('Course'),
     t('Alle'),
     t('Dashboard'),
     t('Email'),
+    t('Send e-mail'),
     t('Name'),
-    t('Product'),
-    t('Course'),
   );
   $export['vih_short_course_orders'] = $view;
 
