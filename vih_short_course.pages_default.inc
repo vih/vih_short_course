@@ -500,8 +500,8 @@ function vih_short_course_default_page_manager_handlers() {
         0 => array(
           'name' => 'term_vocabulary',
           'settings' => array(
-            'vids' => array(
-              5 => '5',
+            'machine_name' => array(
+              'short_course_type' => 'short_course_type',
             ),
           ),
           'context' => 'argument_term_1',
