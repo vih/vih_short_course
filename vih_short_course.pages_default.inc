@@ -477,5 +477,118 @@ function vih_short_course_default_page_manager_handlers() {
   $handler->conf['display'] = $display;
   $export['node_view_panel_context_3'] = $handler;
 
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'term_view_panel_context_2';
+  $handler->task = 'term_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = 1;
+  $handler->conf = array(
+    'title' => 'Short Course Type',
+    'no_blocks' => 0,
+    'pipeline' => 'ipe',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'term_vocabulary',
+          'settings' => array(
+            'vids' => array(
+              5 => '5',
+            ),
+          ),
+          'context' => 'argument_term_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'radix_boxton';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'contentmain' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'a06f889b-08b8-43a9-ac18-fe25edc98104';
+  $display->content = array();
+  $display->panels = array();
+  $pane = new stdClass();
+  $pane->pid = 'new-c1f98193-fb94-4063-a520-c4670d649dd9';
+  $pane->panel = 'contentmain';
+  $pane->type = 'entity_view';
+  $pane->subtype = 'taxonomy_term';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'view_mode' => 'full',
+    'context' => 'argument_term_1',
+    'override_title' => 1,
+    'override_title_text' => '',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = 'c1f98193-fb94-4063-a520-c4670d649dd9';
+  $display->content['new-c1f98193-fb94-4063-a520-c4670d649dd9'] = $pane;
+  $display->panels['contentmain'][0] = 'new-c1f98193-fb94-4063-a520-c4670d649dd9';
+  $pane = new stdClass();
+  $pane->pid = 'new-608a4c71-326f-4931-8909-df158f689616';
+  $pane->panel = 'contentmain';
+  $pane->type = 'views_panes';
+  $pane->subtype = 'short_courses-panel_pane_2';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'view_mode' => 'teaser',
+    'widget_title' => NULL,
+    'items_per_page' => NULL,
+    'exposed' => array(
+      'sort_by' => NULL,
+      'sort_order' => NULL,
+    ),
+    'use_pager' => NULL,
+    'pager_id' => NULL,
+    'offset' => NULL,
+    'link_to_view' => NULL,
+    'more_link' => NULL,
+    'path' => NULL,
+    'view_settings' => 'fields',
+    'header_type' => 'none',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+    'style' => 'vih_box_highlight',
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = '608a4c71-326f-4931-8909-df158f689616';
+  $display->content['new-608a4c71-326f-4931-8909-df158f689616'] = $pane;
+  $display->panels['contentmain'][1] = 'new-608a4c71-326f-4931-8909-df158f689616';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $export['term_view_panel_context_2'] = $handler;
+
   return $export;
 }
