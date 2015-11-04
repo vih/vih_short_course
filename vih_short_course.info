@@ -60,6 +60,7 @@ features[field_instance][] = taxonomy_term-short_course_type-field_sticky
 features[field_instance][] = taxonomy_term-short_course_type-field_video
 features[node][] = short_course
 features[page_manager_handlers][] = node_view_panel_context_3
+features[page_manager_handlers][] = term_view_panel_context_2
 features[taxonomy][] = short_course_type
 features[variable][] = field_bundle_settings_node__short_course
 features[variable][] = language_content_type_short_course
