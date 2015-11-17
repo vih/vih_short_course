@@ -656,24 +656,6 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['arguments']['field_course_type_tid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['block_caching'] = '4';
 
-  /* Display: Feed */
-  $handler = $view->new_display('feed', 'Feed', 'feed_1');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Korte kurser';
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['style_plugin'] = 'rss';
-  $handler->display->display_options['row_plugin'] = 'date_ical';
-  $handler->display->display_options['row_options']['date_field'] = 'field_data_field_course_time.field_course_time_value';
-  $handler->display->display_options['path'] = 'kortekurser.xml';
-  $handler->display->display_options['displays'] = array(
-    'block_short_course_depends_type' => 'block_short_course_depends_type',
-    'block_short_courses_quotes' => 'block_short_courses_quotes',
-    'block_all_short_courses' => 'block_all_short_courses',
-    'default' => 0,
-    'block_short_courses_sidebar' => 0,
-  );
-  $handler->display->display_options['sitename_title'] = 0;
-
   /* Display: Ical */
   $handler = $view->new_display('feed', 'Ical', 'feed_ical');
   $handler->display->display_options['defaults']['title'] = FALSE;
@@ -687,11 +669,15 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['row_options']['date_field'] = 'field_data_field_course_time.field_course_time_value';
   $handler->display->display_options['path'] = 'kortekurser.ics';
   $handler->display->display_options['displays'] = array(
-    'block_short_course_depends_type' => 'block_short_course_depends_type',
-    'block_short_courses_quotes' => 'block_short_courses_quotes',
-    'block_all_short_courses' => 'block_all_short_courses',
+    'panel_pane_2' => 'panel_pane_2',
     'default' => 0,
+    'page_1' => 0,
+    'block_short_course_depends_type' => 0,
     'block_short_courses_sidebar' => 0,
+    'block_short_courses_quotes' => 0,
+    'block_all_short_courses' => 0,
+    'block_1' => 0,
+    'panel_pane_1' => 0,
   );
   $handler->display->display_options['sitename_title'] = 0;
 
@@ -1368,7 +1354,6 @@ function vih_short_course_views_default_views() {
     t('Blok - course type'),
     t('Used with taxonomy display on the taxonomy page.'),
     t('<p><strong>Vi har i øjeblikket ikke nogen aktuelle kurser af den pågældende type. <a href="/nyhedsbrev">Tilmeld dig nyhedsbrevet</a> for at blive opdateret, når vi igen har aktuelle kurser.</strong></p>'),
-    t('Feed'),
     t('Ical'),
     t('Feed i iCal format'),
     t('Sidebar blok'),
