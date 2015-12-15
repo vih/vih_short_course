@@ -1612,10 +1612,13 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'commerce_order';
   $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['operator'] = 'not in';
   $handler->display->display_options['filters']['status']['value'] = array(
-    'pending' => 'pending',
-    'completed' => 'completed',
-    'checkout_complete' => 'checkout_complete',
+    'canceled' => 'canceled',
+    'cart' => 'cart',
+    'checkout_checkout' => 'checkout_checkout',
+    'checkout_review' => 'checkout_review',
+    'checkout_payment' => 'checkout_payment',
   );
   $handler->display->display_options['filters']['status']['expose']['operator_id'] = 'status_op';
   $handler->display->display_options['filters']['status']['expose']['label'] = 'Ordrestatus';
@@ -1626,8 +1629,8 @@ function vih_short_course_views_default_views() {
     1 => 0,
   );
 
-  /* Display: Short courses */
-  $handler = $view->new_display('page', 'Short courses', 'page_1');
+  /* Display: Course registrations page */
+  $handler = $view->new_display('page', 'Course registrations page', 'page_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Tilmeldinger';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
@@ -1735,13 +1738,8 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['tab_options']['weight'] = '0';
 
-  /* Display: Dashboard */
-  $handler = $view->new_display('page', 'Dashboard', 'page_2');
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['path'] = 'admin/commerce/registrations';
-
-  /* Display: Email */
-  $handler = $view->new_display('page', 'Email', 'page_4');
+  /* Display: Course registration email page */
+  $handler = $view->new_display('page', 'Course registration email page', 'page_4');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Send e-mail';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
@@ -1820,6 +1818,11 @@ function vih_short_course_views_default_views() {
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
   $handler->display->display_options['tab_options']['weight'] = '0';
+
+  /* Display: Dashboard page */
+  $handler = $view->new_display('page', 'Dashboard page', 'page_2');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['path'] = 'admin/commerce/registrations';
   $translatables['vih_short_course_orders'] = array(
     t('Master'),
     t('mere'),
@@ -1846,17 +1849,17 @@ function vih_short_course_views_default_views() {
     t('Golfhandicap'),
     t('Sambo'),
     t('Ordrestatus'),
-    t('Short courses'),
+    t('Course registrations page'),
     t('Tilmeldinger'),
     t('more'),
     t('I alt @total tilmeldinger til kurset'),
     t('Product'),
     t('Course'),
     t('Alle'),
-    t('Dashboard'),
-    t('Email'),
+    t('Course registration email page'),
     t('Send e-mail'),
     t('Name'),
+    t('Dashboard page'),
   );
   $export['vih_short_course_orders'] = $view;
 
